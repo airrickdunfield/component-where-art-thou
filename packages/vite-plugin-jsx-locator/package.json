@@ -1,10 +1,14 @@
 {
-  "name": "vite-plugin-jsx-locator",
+  "name": "@airrickdunfield/vite-plugin-jsx-locator",
   "version": "0.1.0",
   "description": "Development-only JSX source annotations for JSX Open in Code",
+  "license": "MIT",
   "type": "module",
   "main": "./src/index.js",
   "exports": "./src/index.js",
+  "files": ["src", "README.md", "LICENSE"],
+  "keywords": ["vite", "react", "jsx", "source-location", "developer-tools"],
+  "publishConfig": { "access": "public" },
   "peerDependencies": {
     "vite": "^5.0.0 || ^6.0.0 || ^7.0.0"
   },

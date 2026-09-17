@@ -1,0 +1,14 @@
+{
+  "name": "jsx-open-in-code-firefox",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Firefox extension for JSX Open in Code.",
+  "license": "MIT",
+  "scripts": {
+    "lint:firefox": "web-ext lint",
+    "build:firefox": "web-ext build --overwrite-dest --artifacts-dir ../../dist/firefox"
+  },
+  "devDependencies": {
+    "web-ext": "^8.0.0"
+  }
+}

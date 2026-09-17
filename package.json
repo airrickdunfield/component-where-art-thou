@@ -1,8 +1,12 @@
 {
   "name": "jsx-open-in-code",
   "private": true,
+  "version": "0.1.0",
+  "license": "MIT",
   "workspaces": ["packages/*"],
   "scripts": {
-    "check": "npm run check --workspaces --if-present"
+    "check": "npm run check --workspaces --if-present",
+    "lint:firefox": "npm run lint:firefox --workspace=jsx-open-in-code-firefox",
+    "build:firefox": "npm run build:firefox --workspace=jsx-open-in-code-firefox"
   }
 }

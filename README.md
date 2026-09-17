@@ -5,6 +5,9 @@ opening its source in VS Code.
 
 For a detailed Firefox setup, see [INSTALL.md](./INSTALL.md).
 
+This project is released under the [MIT License](./LICENSE). Its local-only data
+handling is described in [PRIVACY.md](./PRIVACY.md).
+
 It has three pieces:
 
 1. `packages/vite-plugin-jsx-locator` annotates native JSX elements with their
@@ -41,10 +44,10 @@ Router.jsx › Page() › UIKitSection.jsx › FeatureCard()
 
 ### 1. Add the Vite plugin to a React app
 
-Install the local plugin (or publish it first):
+Install the Vite plugin:
 
 ```sh
-npm install -D /absolute/path/to/jsx-open-in-code/packages/vite-plugin-jsx-locator
+npm install -D @airrickdunfield/vite-plugin-jsx-locator
 ```
 
 ```js
@@ -55,7 +58,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(async ({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
   const jsxLocator = env.JSX_OPEN_IN_CODE === 'true'
-    ? (await import('vite-plugin-jsx-locator')).jsxLocator
+    ? (await import('@airrickdunfield/vite-plugin-jsx-locator')).jsxLocator
     : null;
 
   return {
