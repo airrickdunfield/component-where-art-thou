@@ -1,15 +1,26 @@
 {
-  "name": "jsx-open-in-code-vscode",
+  "name": "jsx-open-in-code",
   "displayName": "JSX Open in Code",
   "version": "0.1.0",
-  "publisher": "local",
+  "publisher": "airrickdunfield",
   "license": "MIT",
   "icon": "icons/icon-128.png",
   "engines": { "vscode": "^1.85.0" },
-  "categories": ["Other"],
+  "categories": ["Other", "Visualization"],
+  "keywords": ["jsx", "react", "vite", "developer tools", "browser", "source location"],
+  "galleryBanner": { "color": "#7c3aed", "theme": "dark" },
   "activationEvents": ["onStartupFinished", "onCommand:jsxOpenInCode.generateBrowserToken"],
   "main": "./extension.js",
   "contributes": { "commands": [{ "command": "jsxOpenInCode.generateBrowserToken", "title": "JSX Open in Code: Generate Browser Token" }] },
-  "scripts": { "check": "node --check extension.js" },
-  "devDependencies": { "@types/node": "^22.0.0", "@types/vscode": "^1.85.0", "vscode": "^1.1.37" }
+  "scripts": {
+    "check": "node --check extension.js",
+    "package:vscode": "node -e \"require('fs').mkdirSync('../../dist/vscode', { recursive: true })\" && vsce package --no-dependencies --allow-missing-repository --out ../../dist/vscode/jsx-open-in-code-0.1.0.vsix",
+    "publish:vscode": "vsce publish --no-dependencies --allow-missing-repository"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.0.0",
+    "vscode": "^1.1.37"
+  }
 }
