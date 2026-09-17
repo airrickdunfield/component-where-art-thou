@@ -14,6 +14,10 @@ It has three pieces:
    inspector.
 4. `packages/vscode-extension` listens on localhost and opens the selected file.
 
+The included artwork is used consistently for Firefox, Chromium, and VS Code
+extension icons. The unchanged 1024×1024 master is stored at
+`assets/component-where-are-thou.png`.
+
 ## How it works
 
 1. When enabled, the Vite plugin adds development-only source metadata to native
