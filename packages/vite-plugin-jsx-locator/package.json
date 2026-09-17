@@ -1,0 +1,17 @@
+{
+  "name": "vite-plugin-jsx-locator",
+  "version": "0.1.0",
+  "description": "Development-only JSX source annotations for JSX Open in Code",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": "./src/index.js",
+  "peerDependencies": {
+    "vite": "^5.0.0 || ^6.0.0 || ^7.0.0"
+  },
+  "dependencies": {
+    "@babel/generator": "^7.26.0",
+    "@babel/parser": "^7.26.0",
+    "@babel/traverse": "^7.26.0",
+    "@babel/types": "^7.26.0"
+  }
+}

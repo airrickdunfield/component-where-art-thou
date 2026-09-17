@@ -1,0 +1,8 @@
+{
+  "name": "jsx-open-in-code",
+  "private": true,
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "check": "npm run check --workspaces --if-present"
+  }
+}

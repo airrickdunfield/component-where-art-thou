@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "JSX Open in Code",
+  "version": "0.1.0",
+  "description": "Inspect rendered JSX and open its source in VS Code.",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["http://127.0.0.1:48732/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "JSX Open in Code"
+  },
+  "content_scripts": [{
+    "matches": ["http://localhost/*", "http://127.0.0.1/*"],
+    "js": ["content.js"],
+    "run_at": "document_idle"
+  }]
+}
