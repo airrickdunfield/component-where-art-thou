@@ -61,6 +61,14 @@ async function onClick(event) {
   const body = { file: element.dataset.jsxOpenInCodeFile, line: Number(element.dataset.jsxOpenInCodeLine), column: Number(element.dataset.jsxOpenInCodeColumn) };
   try {
     const response = await fetch('http://127.0.0.1:48732/open', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-JSX-Open-In-Code-Token': token }, body: JSON.stringify(body) });
+    if (response.status === 401) {
+      await api.storage.local.remove('token');
+      await api.storage.local.set({ pairingError: 'Your VS Code token is no longer valid. Generate a new token in VS Code, then paste it here.' });
+      active = false;
+      draw(null);
+      alert('Your VS Code token is no longer valid. Click the JSX Open in Code toolbar button to enter a new one.');
+      return;
+    }
     if (!response.ok) throw new Error(await response.text());
     active = false; draw(null);
   } catch (error) { alert(`JSX Open in Code could not open this file: ${error.message}`); }

@@ -16,14 +16,18 @@ async function startInspection(value) {
   }
 }
 
-api.storage.local.get({ token: '' }).then(({ token: savedToken }) => {
+api.storage.local.get({ token: '', pairingError: '' }).then(({ token: savedToken, pairingError }) => {
   token.value = savedToken;
-  if (savedToken) startInspection(savedToken);
+  if (pairingError) {
+    status.textContent = pairingError;
+    api.storage.local.remove('pairingError');
+  }
 });
 
 document.querySelector('#save').addEventListener('click', async () => {
   const value = token.value.trim();
   if (!value) { status.textContent = 'Paste a browser token first.'; return; }
   await api.storage.local.set({ token: value });
+  await api.storage.local.remove('pairingError');
   await startInspection(value);
 });
